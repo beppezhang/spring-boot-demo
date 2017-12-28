@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="system-api:war">
+    <output-path>$PROJECT_DIR$/spring-boot-demo/systemspringboot/systemapi/target</output-path>
+    <root id="archive" name="system-api-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="system-api:war exploded" />
+    </root>
+  </artifact>
+</component>
