@@ -15,6 +15,8 @@ public class CityServiceImpl {
         City city= cityMapper.selectByPrimaryKey(1);
 
         System.out.println(city.getName()+city.getPopulation());
+
+        System.out.println("this is the teest!!");
     }
 
 }
