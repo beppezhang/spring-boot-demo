@@ -25,6 +25,10 @@ public class CityServiceImpl {
         System.out.println("this is the git test") ;
 
         System.out.println("this is the test");
+
+        System.out.println("正在处理第2个bug");
+
+        System.out.println("第二个bug处理结束了");
     }
 
 }
