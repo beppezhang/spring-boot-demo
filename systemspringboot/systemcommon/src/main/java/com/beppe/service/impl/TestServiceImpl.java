@@ -8,6 +8,10 @@ public class TestServiceImpl {
     public  void test1(){
         System.out.println("this is the test1");
 
+        System.out.println("this is the bug2 doing ");
+
+        System.out.println("master doing is finished");
+
 
     }
 }
