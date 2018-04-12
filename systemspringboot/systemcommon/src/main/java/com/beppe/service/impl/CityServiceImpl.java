@@ -21,6 +21,10 @@ public class CityServiceImpl {
         System.out.println("this is the branch test!!");
 
         System.out.println("this is the local branch!!");
+
+        System.out.println("this is the git test") ;
+
+        System.out.println("this is the test");
     }
 
 }
