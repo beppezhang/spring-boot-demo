@@ -7,5 +7,7 @@ public class TestServiceImpl {
     @Test
     public  void test1(){
         System.out.println("this is the test1");
+
+        System.out.println("this is the master input");
     }
 }
