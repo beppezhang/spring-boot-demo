@@ -6,15 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eurekaserver" />
+        <module name="JavaDemo2" />
+        <module name="MySpringmvc" />
+        <module name="service-hi" />
+        <module name="service-ribbon" />
         <module name="system-api" />
         <module name="system-common" />
         <module name="system-util" />
+        <module name="system_dubbo_api" />
+        <module name="system_dubbo_provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="system-api" target="1.6" />
+      <module name="eurekaserver" target="1.8" />
+      <module name="JavaDemo2" target="1.7" />
+      <module name="MySpringmvc" target="1.6" />
+      <module name="service-hi" target="1.8" />
+      <module name="service-ribbon" target="1.8" />
+      <module name="system-api" target="1.7" />
       <module name="system-common" target="1.6" />
-      <module name="system-util" target="1.6" />
+      <module name="system-util" target="1.8" />
+      <module name="system_dubbo_api" target="1.6" />
+      <module name="system_dubbo_provider" target="1.6" />
       <module name="systemspringboot" target="1.6" />
     </bytecodeTargetLevel>
   </component>

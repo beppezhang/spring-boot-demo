@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>systemspringboot</artifactId>
+        <groupId>com.beppe</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>system-api</artifactId>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <profiles.active>dev</profiles.active>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.beppe</groupId>
+            <artifactId>system-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>dev/*</exclude>
+                    <exclude>test/*</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${profiles.active}</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+
+</project>

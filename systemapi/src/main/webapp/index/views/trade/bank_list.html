@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Title and other stuffs -->
+ 
+  <!-- Stylesheets -->
+  <link href="../../style/bootstrap.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="../../style/font-awesome.css"> 
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="../../style/jquery-ui.css"> 
+  <!-- Calendar -->
+  <link rel="stylesheet" href="../../style/fullcalendar.css">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="../../style/prettyPhoto.css">  
+  <!-- Star rating -->
+  <link rel="stylesheet" href="../../style/rateit.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="../../style/bootstrap-datetimepicker.min.css">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="../../style/jquery.cleditor.css"> 
+  <!-- Uniform -->
+<!--   <link rel="stylesheet" href="../../style/uniform.default.css">  -->
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="../../style/bootstrap-switch.css">
+  <!-- Main stylesheet -->
+  <link href="../../style/style.css" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="../../style/widgets.css" rel="stylesheet">   
+  
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shim.js"></script>
+  <![endif]-->
+	
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../img/favicon/favicon.png">
+<!--   /calfTrader-systemCenter-web/src/main/webapp/js/My97DatePicker/WdatePicker.js -->
+   <script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+<!--    <link href="My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css"> -->
+</head>
+<style type="text/css">
+  .table-bordered{
+  	table-layout: fixed;
+  }
+  
+  /** 所有th居中 **/
+  th{
+  	text-align: center;
+  }
+  
+  /**所有td居中**/
+  td{
+  	text-align: center;
+  }
+  </style>
+<body>
+
+
+	<div class="content">
+
+	
+
+		<!-- Main bar -->
+		<div class="mainbar">
+
+			
+			<!-- Matter -->
+		<!--  /*******************************/ -->
+                	 <div class="panel-body">
+					<form role="form" id="form1" method="post" class="form-horizontal validate">
+						<div class="form-group-separator"></div>
+					</form>
+				</div> 
+	 <!--  /*******************************/ -->
+			<!--  /********************/ -->
+			<div>
+				<a href='javascript:' onclick="addForm();" class='btn btn-success btn-radius'
+					style="width: 10%; margin-left: 10%;">新增</a>
+				<a href='javascript:' onclick="redisRefresh();" class='btn btn-success btn-radius'
+				   style="width: 10%; margin-left: 5%;">刷新缓存</a>
+			</div>
+			<!-- /********************/ -->
+			<div class="matter">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="tab" class="panel-body">
+								<div class="box_row" id="box_row_id">
+									<table class="table table-bordered table-striped"
+										id="example-4">
+										<thead style="white-space: nowrap;">
+											<tr>
+						                          <th>银行名称</th>
+						                           <th>银行代码</th>
+													 <th>ICON名称</th>
+													 <th>是否置顶</th>
+													<th>是否删除</th>
+													<th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Matter ends -->
+
+		</div>
+
+		<!-- Mainbar ends -->
+		<div class="clearfix"></div>
+
+		<!-- loading -->
+		<div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop='static'>
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">提示</h4>
+					</div>
+					<div class="modal-body">
+						正在执行，请稍候。。。
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- Content ends -->
+	<!-- Footer ends -->
+
+	<!-- Scroll to top -->
+	<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
+
+	<!-- JS -->
+	<script src="../../jqery/jquery.js"></script>
+	<!-- jQuery -->
+	<script src="../../jqery/bootstrap.js"></script>
+	<!-- Bootstrap -->
+	<script src="../../jqery/jquery-ui-1.9.2.custom.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="../../jqery/fullcalendar.min.js"></script>
+	<!-- Full Google Calendar - Calendar -->
+	<script src="../../jqery/jquery.rateit.min.js"></script>
+	<!-- RateIt - Star rating -->
+	<script src="../../jqery/jquery.prettyPhoto.js"></script>
+	<!-- prettyPhoto -->
+
+	<!-- jQuery Flot -->
+	<script src="../../jqery/excanvas.min.js"></script>
+	<script src="../../jqery/jquery.flot.js"></script>
+	<script src="../../jqery/jquery.flot.resize.js"></script>
+	<script src="../../jqery/jquery.flot.pie.js"></script>
+	<script src="../../jqery/jquery.flot.stack.js"></script>
+
+	<!-- jQuery Notification - Noty -->
+	<script src="../../jqery/jquery.noty.js"></script>
+	<!-- jQuery Notify -->
+	<script src="../../jqery/themes/default.js"></script>
+	<!-- jQuery Notify -->
+	<script src="../../jqery/layouts/bottom.js"></script>
+	<!-- jQuery Notify -->
+	<script src="../../jqery/layouts/topRight.js"></script>
+	<!-- jQuery Notify -->
+	<script src="../../jqery/layouts/top.js"></script>
+	<!-- jQuery Notify -->
+	<!-- jQuery Notification ends -->
+
+	<script src="../../jqery/sparklines.js"></script>
+	<!-- Sparklines -->
+	<script src="../../jqery/jquery.cleditor.min.js"></script>
+	<!-- CLEditor -->
+	<script src="../../jqery/bootstrap-datetimepicker.min.js"></script>
+	<!-- Date picker -->
+	<!-- jQuery Uniform -->
+	<script src="../../jqery/bootstrap-switch.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="../../jqery/filter.js"></script>
+	<!-- Filter for support page -->
+	<script src="../../jqery/custom.js"></script>
+	
+	<!-- Custom codes -->
+	<script src="../../jqery/charts.js"></script>
+	<!-- Charts & Graphs -->
+	<!-- <script src="../../js/dataTables.bootstrap.css"></script> Charts & Graphs
+ -->	
+
+		<script src="../../jqery/bootstrap-datepicker.js"></script> <!-- Charts & Graphs -->
+		<script src="../../jqery/bootstrap-datepicker.zh-CN.js"></script> <!-- Charts & Graphs -->
+		<script src="../../jqery/jquery.dataTables.min.js"></script> <!-- Charts & Graphs -->
+		<script src="../../jqery/dataTables.bootstrap.js"></script> <!-- Charts & Graphs -->
+		<script src="../../jqery/jquery.dataTables.yadcf.js"></script> <!-- Charts & Graphs -->
+		<script src="../../jqery/dataTables.tableTools.min.js"></script> <!-- Charts & Graphs -->
+		<!-- <script src="../../js/xenon-custom.js"></script> Charts & Graphs -->
+		<script src="../../jqery/pikaday.min.js"></script> <!-- Charts & Graphs -->
+		<script src="../../js/trade/bank_list.js"></script>  <!--Charts & Graphs-->
+	<!-- Charts & Graphs -->
+	<script type="text/javascript" src="../../../commons/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+	</head>
+
+	<body>
+		<div class="admin-main">
+		
+
+			<blockquote class="layui-elem-quote">
+				<!--<a href="javascript:;" class="layui-btn layui-btn-small" id="add">-->
+					<!--<i class="layui-icon">&#xe608;</i> 添加角色-->
+				<!--</a>-->
+<!-- 				<a href="#" class="layui-btn layui-btn-small" id="import"> -->
+<!-- 					<i class="layui-icon">&#xe608;</i> 导入信息 -->
+<!-- 				</a> -->
+<!-- 				<a href="#" class="layui-btn layui-btn-small"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息 -->
+<!-- 				</a> -->
+<!-- 				<a href="#" class="layui-btn layui-btn-small" id="getSelected"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 多选删除 -->
+<!-- 				</a> -->
+				
+				<!-- 查询条件 -->
+				<div class="layui-inline">
+					<label class="layui-form-label" >手机号码</label>
+					<div class="layui-input-inline" style="width:200px;">
+						<input name="mobileNum"  lay-verify="mobileNum" id="mobileNum" autocomplete="off" class="layui-input" maxlength="11"
+							   onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+							   onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label" >会员昵称</label>
+					<div class="layui-input-inline" style="width:200px;">
+						<input name="nickName"  lay-verify="nickName" id="nickName" autocomplete="off" class="layui-input"/>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">会员状态</label>
+					<div class="layui-input-inline" style="width:160px;">
+						<select name="status" id = "status" class="layui-input">
+							<option value="">请选择</option>
+							<option value="0">正常</option>
+							<option value="1">禁用</option>
+						</select>
+					</div>
+				</div>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="layui-inline">
+					<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
+						<i class="layui-icon">&#xe615;</i> 搜索
+					</a>
+				</div>
+			</blockquote>
+			<fieldset class="layui-elem-field">
+				<legend>数据列表</legend>
+				<div class="layui-field-box layui-form">
+					<table class="layui-table admin-table">
+						<thead>
+							<tr>
+								<th style="width: 30px;">
+								<input type="checkbox" lay-filter="allselector" lay-skin="primary"></th>
+								<th>会员ID</th>
+								<th>会员昵称</th>
+								<th>注册时间</th>
+								<th>最后更新时间</th>
+								<th>会员状态</th>
+								<th>手机号码</th>
+								<th>注册设备类型</th>
+								<!--<th>会员来源</th>
+								<th>市场代码</th>
+								<th>注册渠道</th>-->
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="content">
+						</tbody>
+					</table>
+					<label>共<font color='red' id="count_page_number"></font>条记录</label>
+					<div id="paged" class="page" style="display:inline-block;">
+					</div>
+				</div>
+			</fieldset>
+
+		</div>
+		<!--模板-->
+		<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){
+				var status = "";
+				if(item.status == '0'){
+					status = "正常";
+				} if(item.status == '1'){
+					status = "禁用";
+				}
+				var device="";
+				if(item.device == '1'){
+					device="Android";
+				}if(item.device == '0'){
+					device="IOS";
+				}if(item.device == '4'){
+					device="Windows Phone";
+				}if(item.device == '2'){
+					device="其他";
+				}
+
+				var source="";
+				if(item.sourceId == '10'){
+					source="指盈金服";
+				}if(item.sourceId == '9'){
+					source="原油宝";
+				}if(item.sourceId == '11'){
+					source="投资乐";
+				}if(item.sourceId == '12'){
+					source="投资乐VIP";
+				}if(item.sourceId == '1'){
+					source="原油通";
+				}if(item.sourceId == '2'){
+					source="外汇通";
+				}
+
+
+			}}
+			<tr>
+				<td><input type="checkbox" lay-skin="primary"></td>
+				<td>{{ item.userId }}</td>
+				<td>{{ item.nickName }}</td>
+				<td>{{ item.createTime }}</td>
+				<td>{{ item.lastModifyTime }}</td>
+				<td>{{ status }}</td>
+				<td>{{ item.mobileNum }}</td>
+				<td>{{ device }}</td>
+				<!--<td>{{ source }}</td>
+				<td>{{ item.market }}</td>
+				<td>{{ item.channel }}</td>-->
+				<td>
+					{{# if(item.status == '0'){ }}
+					<a href="javascript:;" data-id="{{ item.userId }}" data-status="{{ item.status }}" data-opt="forbidden" class="layui-btn layui-btn-danger layui-btn-mini">禁用</a>
+					{{# } else  { }}
+					<a href="javascript:;" data-id="{{ item.userId }}" data-status="{{ item.status }}" data-opt="forbidden" class="layui-btn layui-btn-normal layui-btn-mini">解禁</a>
+					{{# } }}
+					<!--<a href="javascript:;" data-id="{{ item.userId }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>-->
+					<a href="javascript:;" data-id="{{ item.userId }}" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+				</td>
+			</tr>
+			{{# }); }}
+		</script>
+		
+		<!-- js -->
+		<script src="../../jqery/jquery.js"></script>
+		<script src="../../../commons/base.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/member/tbUser_list.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,78 @@
+#spring:
+#    datasource:
+#        name: world
+#        url: jdbc:mysql://localhost:3306/my_test_db
+#        username: root
+#        password: root
+#        # 使用druid数据源
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driver-class-name: com.mysql.jdbc.Driver
+#        filters: stat
+#        maxActive: 20
+#        initialSize: 1
+#        maxWait: 60000
+#        minIdle: 1
+#        timeBetweenEvictionRunsMillis: 60000
+#        minEvictableIdleTimeMillis: 300000
+#        validationQuery: select 'x'
+#        testWhileIdle: true
+#        testOnBorrow: false
+#        testOnReturn: false
+#        poolPreparedStatements: true
+#        maxOpenPreparedStatements: 20
+
+spring:
+    datasource:
+        DB1:
+            url: jdbc:mysql://localhost:3306/goods_mall
+            username: root
+            password: root
+            # 使用druid数据源
+            type: com.alibaba.druid.pool.DruidDataSource
+            driver-class-name: com.mysql.jdbc.Driver
+#        DB2:
+#            url: jdbc:mysql://localhost:3306/my_test_db2
+#            username: root
+#            password: root
+#            # 使用druid数据源
+#            type: com.alibaba.druid.pool.DruidDataSource
+#            driver-class-name: com.mysql.jdbc.Driver
+
+    redis:
+        host: localhost
+        port: 6379
+        database: 5
+        timeout: 10000
+        pool:
+            max-idle: 8
+            min-idl: 0
+            max-active: 8
+            max-wait: -1
+
+#    spring RabbitMQ
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+
+#mybatis:
+#    type-aliases-package: com.beppe.entity
+#    mapper-locations: classpath:com/beppe/mapper/*.xml
+
+
+
+
+
+logging:
+    file: log.log
+    level:
+        root: info
+        com.beppe.dao: CONSOLE
+        com.beppe.mappper: CONSOLE
+        com.beppe.service: INFO
+        com.beppe.api: error
+
+
+
+

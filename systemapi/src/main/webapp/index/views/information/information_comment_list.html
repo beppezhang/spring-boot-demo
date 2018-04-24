@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Title and other stuffs -->
+  <!-- Stylesheets -->
+  <link href="../../style/bootstrap.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="../../style/font-awesome.css"> 
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="../../style/jquery-ui.css"> 
+  <!-- Calendar -->
+  <link rel="stylesheet" href="../../style/fullcalendar.css">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="../../style/prettyPhoto.css">  
+  <!-- Star rating -->
+  <link rel="stylesheet" href="../../style/rateit.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="../../style/bootstrap-datetimepicker.min.css">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="../../style/jquery.cleditor.css"> 
+  <!-- Uniform -->
+  <!--<link rel="stylesheet" href="../../style/uniform.default.css"> -->
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="../../style/bootstrap-switch.css">
+  <!-- Main stylesheet -->
+  <link href="../../style/style.css" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="../../style/widgets.css" rel="stylesheet">   
+  
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shim.js"></script>
+  <![endif]-->
+	
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../img/favicon/favicon.png">
+   <style type="text/css">
+  .table-bordered{
+  	table-layout: fixed;
+  }
+  
+  /** 所有th居中 **/
+  th{
+  	text-align: center;
+  }
+  
+  /**所有td居中**/
+  td{
+  	text-align: center;
+  }
+  
+/*   sorting_1 */
+  
+/*   style='overflow:hidden;white-space:nowrap;text-overflow:ellipsis;width:150px;' */
+  </style>
+</head>
+
+
+<body>
+	<!-- Main content starts -->
+
+	<div class="content">
+
+		<!-- Sidebar -->
+
+		<!-- Sidebar ends -->
+
+		<!-- Main bar -->
+		<div class="mainbar">
+
+			<!-- Page heading ends -->
+			<!-- Matter -->
+		<!--  /*******************************/ -->
+                	 <div class="panel-body">
+					<form role="form" id="form1" method="post" class="form-horizontal validate">
+						<h3>&nbsp;标题为【<span id="commentTitle"></span>】的消息评论</h3>
+						<div class="form-group">
+							<label class="col-sm-2 control-label"  >用户昵称<span class="asterisk"></span>：</label>
+							<div class="col-sm-2">
+								<input type="text" onblur="verifyCommNo(this,'commNoLabel')" id="nickname" class="form-control error btn-radius"
+								name="nickname" maxlength="50" placeholder="" />
+							</div>
+						     
+							<label for="identity" class="col-md-2 control-label"></label>
+						    <div class="col-md-2 ">
+								<input type="button" class="btn btn-success btn-radius" onclick="query('');" value="搜索" style="margin-right:100px;" /> 
+								<input type="button" class="btn btn-success btn-radius" onclick="historysGo();" value="返回" /> 
+							</div>
+						</div>
+						<div class="form-group-separator"></div>
+					</form>
+				</div> 
+	 <!--  /*******************************/ -->
+			<!--  /********************/ -->
+			 
+			<!-- /********************/ -->
+			<div class="matter">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="tab" class="panel-body">
+								<div class="box_row">
+									<table class="table table-bordered table-striped"
+										id="example-4">
+										<thead style="white-space: nowrap;">
+											<tr>
+												 <th>用户ID</th>
+						                          <th>用户名</th>
+						                          <th>内容</th>
+						                          <th>图片数量</th>
+						                          <th>发表时间</th>
+						                          <th>状态</th>
+						                          <th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Matter ends -->
+
+		</div>
+
+		<!-- Mainbar ends -->
+		<div class="clearfix"></div>
+
+	<!-- Content ends -->
+	<!-- Footer ends -->
+
+	<!-- Scroll to top -->
+	<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
+
+	<!-- JS -->
+	<script src="../../jqery/jquery.js"></script> <!-- jQuery -->
+	<script src="../../jqery/bootstrap.js"></script> <!-- Bootstrap -->
+	<script src="../../jqery/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
+	<script src="../../jqery/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+	<script src="../../jqery/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+	<script src="../../jqery/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+
+	<!-- jQuery Flot -->
+	<script src="../../jqery/excanvas.min.js"></script>
+	<script src="../../jqery/jquery.flot.js"></script>
+	<script src="../../jqery/jquery.flot.resize.js"></script>
+	<script src="../../jqery/jquery.flot.pie.js"></script>
+	<script src="../../jqery/jquery.flot.stack.js"></script>
+
+	<!-- jQuery Notification - Noty -->
+	<script src="../../jqery/jquery.noty.js"></script> <!-- jQuery Notify -->
+	<script src="../../jqery/themes/default.js"></script> <!-- jQuery Notify -->
+	<script src="../../jqery/layouts/bottom.js"></script> <!-- jQuery Notify -->
+	<script src="../../jqery/layouts/topRight.js"></script> <!-- jQuery Notify -->
+	<script src="../../jqery/layouts/top.js"></script> <!-- jQuery Notify -->
+	<!-- jQuery Notification ends -->
+
+	<script src="../../jqery/sparklines.js"></script> <!-- Sparklines -->
+	<script src="../../jqery/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+	<script src="../../jqery/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+	<script src="../../jqery/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
+	<script src="../../jqery/filter.js"></script> <!-- Filter for support page -->
+	<script src="../../jqery/custom.js"></script> <!-- Custom codes -->
+	<script src="../../jqery/charts.js"></script> <!-- Charts & Graphs -->
+	<!-- Charts & Graphs -->
+	<!-- <script src="../../js/dataTables.bootstrap.css"></script> Charts & Graphs
+ -->
+	<script src="../../jqery/bootstrap-datepicker.js"></script>
+	<!-- Charts & Graphs -->
+	<script src="../../jqery/bootstrap-datepicker.zh-CN.js"></script>
+	<!-- Charts & Graphs -->
+	<script src="../../jqery/jquery.dataTables.min.js"></script>
+	<!-- Charts & Graphs -->
+	<script src="../../jqery/dataTables.bootstrap.js"></script>
+	<!-- Charts & Graphs -->
+	<script src="../../jqery/jquery.dataTables.yadcf.js"></script>
+	<!-- Charts & Graphs -->
+	<script src="../../jqery/dataTables.tableTools.min.js"></script>
+	<!-- Charts & Graphs -->
+	<!-- <script src="../../js/xenon-custom.js"></script> Charts & Graphs -->
+	<script src="../../jqery/pikaday.min.js"></script>
+	<!-- Charts & Graphs -->
+	<script src="../../js/infomation/informationComment.js"></script>
+	<!-- Charts & Graphs -->
+	<script type="text/javascript" src="../../../commons/base.js"></script>
+</body>
+</html>

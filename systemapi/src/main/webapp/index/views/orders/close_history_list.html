@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+		<script type="text/javascript" src="../../js/dateFormat.min.js"></script>
+	</head>
+
+	<body>
+		<div class="admin-main">
+			<form id="form">
+				<blockquote class="layui-elem-quote">
+					<div class="layui-inline">
+						<label class="layui-form-label" >用户手机号</label>
+						<div class="layui-input-inline" style="width:160px;">
+							<input name="userPhoneNum" id="userPhoneNum" autocomplete="off" class="layui-input"/>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">交易所</label>
+						<div class="layui-input-inline" style="width:160px;">
+							<select  name="excode" id="excode" class="layui-input">
+								<option value="">请选择</option>
+								<option value="SHFE">上期所</option>
+								<option value="CZCE">郑商所</option>
+								<option value="DCE">大商所</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">做单方向</label>
+						<div class="layui-input-inline" style="width:160px;">
+							<select  name="direction" id="direction" class="layui-input">
+								<option value="">请选择</option>
+								<option value="2">涨</option>
+								<option value="1">跌</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">成交时间</label>
+						<div class="layui-input-inline" style="width:150px;">
+							<input type='text' name='tradeTimeBegin' id='tradeTimeBegin'
+								   onclick='WdatePicker()' style='width: 160px;'
+								   class="layui-input">
+						</div>
+						<label> &nbsp;&nbsp;至
+						</label>
+						<div class="layui-input-inline" style="width:150px;">
+							<div id="datetimepicker3" class="input-append">
+								<input type='text' name='tradeTimeEnd' id='tradeTimeEnd'
+									   onclick='WdatePicker()' style='width: 160px;'
+									   class="layui-input">
+							</div>
+						</div>
+					</div>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div class="layui-inline">
+						<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
+							<i class="layui-icon">&#xe615;</i> 搜索
+						</a>
+
+						<a href="javascript:;" class="layui-btn layui-btn-small" id="export">
+							 导出
+						</a>
+					</div>
+				</blockquote>
+			</form>
+			<fieldset class="layui-elem-field">
+				<legend>数据列表</legend>
+				<div class="layui-field-box">
+					<table class="layui-table layui-form" style="table-layout: fixed;text-align: center">
+						<thead >
+							<tr >
+								<!--<th style="width: 30px;">
+								<input type="checkbox" lay-filter="allselector" lay-skin="primary"></th>-->
+								<!--<th>序号</th>-->
+								<th style="text-align: center">用户手机号</th>
+								<th style="text-align: center">交易所</th>
+								<th style="text-align: center">投资帐号</th>
+								<th style="text-align: center">产品名称</th>
+								<th style="text-align: center">合约名称</th>
+								<th style="text-align: center">购买方向</th>
+								<th style="width: 150px;text-align: center">成交时间</th>
+								<th style="text-align: center">平仓金额</th>
+								<th style="text-align: center">平仓手数</th>
+								<th style="text-align: center">实际盈亏</th>
+								<th style="text-align: center">建仓手续费</th>
+								<th style="text-align: center">平仓手续费</th>
+								<!--<th style="width: 100px;">操作</th>-->
+							</tr>
+						</thead>
+						<tbody id="content">
+						</tbody>
+					</table>
+					<label>共<font color='red' id="count_page_number"></font>条记录</label>
+					<div id="paged" class="page" style="display:inline-block;">
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<!--模板-->
+		<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){
+				var exName="";
+				if(item.excode=="SHFE"){
+					exName="上期所";
+				}else if(item.excode=="DCE"){
+					exName="大商所";
+				}else if(item.excode=="CZCE"){
+					exName="郑商所 ";
+				}
+
+				var direction="";
+				if(item.direction=="1"){
+					direction="跌";
+				}else{
+					direction="涨";
+				}
+
+			}}
+			<tr>
+				<!--<td><input type="checkbox" lay-skin="primary"></td>-->
+				<!--<td>{{ index+1 }}</td>-->
+				<td>{{ item.userPhoneNum }}</td>
+				<td>{{ exName }}</td>
+				<td>{{ item.investorId }}</td>
+				<td>{{ item.productName }}</td>
+				<td>{{ item.instrumentName }}</td>
+				<td>{{ direction }}</td>
+				<td>{{ item.tradeTime.substring(0,19) }}</td>
+				<td>{{ item.volume*item.closePrice }}</td>
+				<td>{{ item.volume }}</td>
+				<td>{{ item.profitLoss }}</td>
+				<td>{{ item.openSxf }}</td>
+				<td>{{ item.closeSxf }}</td>
+				<!--<td>
+					&lt;!&ndash;<a href="javascript:;" data-id="{{ item.appVersionId }}" data-opt="find" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>&ndash;&gt;
+					<a href="javascript:;" data-id="{{ item.appVersionId }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>
+					<a href="javascript:;" data-id="{{ item.appVersionId }}" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+				</td>-->
+			</tr>
+			{{# }); }}
+		</script>
+		
+		<!-- js -->
+		<script src="../../jqery/jquery.js"></script>
+		<script src="../../../commons/base.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<!-- 日期控件 -->
+		<script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="../../js/orders/close_history_list.js"></script>
+	</body>
+
+</html>

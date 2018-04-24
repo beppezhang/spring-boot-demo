@@ -1,0 +1,47 @@
+
+[
+ {
+		"title": "会员管理",
+		"icon": "&#x1002",
+		"spread": false,
+		"href": "test2.html"
+	},
+	{
+		"title": "管理2222",
+		"icon": "&#x1002",
+		"spread": false,
+		"children": [
+			{
+				"title": "会员列表",
+				"icon": "fa-check-square-o",
+				"href": "Welcome.html"
+			},{
+				"title": "会员等级",
+				"icon": "fa-check-square-o",
+				"href": "level.html"
+			}
+		]
+	},
+	{
+		"title": "会员管理2",
+		"icon": "&#x1002",
+		"spread": false,
+		"href": "test2.html"
+	},
+	{
+		"title": "管理2222",
+		"icon": "&#x1002",
+		"spread": false,
+		"children": [
+			{
+				"title": "会员列表",
+				"icon": "fa-check-square-o",
+				"href": "https:www.baidu.com"
+			},{
+				"title": "会员等级",
+				"icon": "fa-check-square-o",
+				"href": "level.html"
+			}
+		]
+	}
+ ]

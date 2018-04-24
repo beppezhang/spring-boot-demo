@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration >
+    <classPathEntry location="G:\mysql_driver\mysql-connector-java-5.1.40.jar" />
+    <context id="calfTrader-Activity-generator-mybatis3" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/goods_mall" userId="root" password="root">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.dubbo.entity" targetProject="src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.dubbo.mapper" targetProject="src/main/java">
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.dubbo.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="exampleMethodVisibility" value="public" />
+        </javaClientGenerator>
+
+        <table schema="goods_mall" tableName="customer"></table>
+        <table schema="goods_mall" tableName="exchange_order"></table>
+        <table schema="goods_mall" tableName="goods"></table>
+        <!--<table schema="futures" tableName="tb_goods_config"></table>-->
+        <!--<table schema="futures" tableName="tb_goods_customer_exchange"></table>-->
+        <!--<table schema="futures" tableName="tb_goods_type"></table>-->
+
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拍拍信绝名单列表</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<!-- js -->
+		<script src="../../jqery/jquery.js"></script>
+		<script src="../../../commons/base.js"></script>
+		<!-- 日期控件 -->
+	   <script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+	   <script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+	   <script type="text/javascript" src="../../js/ppx/ppx.js"></script>
+	</head>
+	<body>
+		<div class="admin-main">
+			<blockquote class="layui-elem-quote">
+				 <form class="layui-form" action="">
+					  <div class="layui-form-item">
+					  <div class="layui-input-inline">
+					      	 <input id="idCard" type="text" name="idCard" placeholder="请输入借款人身份证号" maxlength="18" onKeyUp="value=value.replace(/[\W]/g,'')" onkeyup="value=value.replace(/^[a-zA-Z]+\D*|^\d{0,16}[a-zA-Z]+|[^0-9Xx]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  autocomplete="off" class="layui-input">
+						  </div>
+					  	  
+					      <a href="javascript:;" class="layui-btn layui-btn-small" id="search" onclick="sel()">
+								<i class="layui-icon">&#xe615;</i>搜索
+						  </a>
+				    	</div>
+				  </form>
+			</blockquote>
+			<fieldset class="layui-elem-field">
+				<div class="layui-field-box layui-form">
+					<table class="layui-table admin-table">
+						<thead>
+							<tr> 
+								<th>用户ID</th>
+								<th>借款人身份证号</th>
+								<th>借款人姓名</th>
+								<th>借款人手机号</th>
+								<th>拍怕信建议</th> 
+							</tr>
+						</thead>
+						<tbody id="content">
+						</tbody>
+					</table>
+				</div>
+			</fieldset>
+			<div class="admin-table-page">
+				<div id="paged" class="page">
+				</div>
+			</div>
+		</div>
+		<!--模板-->
+		<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){ }}
+			<tr>
+				<td>{{ item.customerId }}</td>
+				<td>{{ item.idCard }}</td>
+				<td>{{ item.name }}</td>
+				<td>{{ item.phoneNum }}</td>
+				<td>{{ item.jxlAntifraud }}</td>
+			</tr>
+			{{# }); }}
+		</script>
+	</body>
+</html>

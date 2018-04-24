@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <title>Insert title here</title> -->
+</head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<!-- css -->
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+
+
+<body>
+	<div style="margin: 15px;">
+	<form class="layui-form" id="appForms" >
+
+		<div class="layui-form-item">
+			<input type="hidden" name="appAuditId" id="appAuditId">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>APP类型</label>
+			<div class="layui-input-inline">
+				<select lay-verify="required" name="appType" id="appType">
+					<option value="">请选择</option>
+					<option value="0">Android</option>
+					<option value="1">IOS</option>
+					<option value="2">Windows Phone</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>市场类型</label>
+			<div class="layui-input-inline">
+				<input type="hidden" name="marketName" id="marketName">
+				<select lay-verify="required" name="marketCode" id="marketCode"  lay-filter="test">
+					<option value=''>请选择渠道</option>
+					<option value='official'>官网</option>
+					<option value='xiaoniucaopan'>小牛操盘</option>
+					<option value='baidu'>百度</option>
+					<option value='2345'>2345</option>
+					<option value='wandoujia'>豌豆荚</option>
+					<option value='ppzhushou'>PP助手</option>
+					<option value='yingyongbao'>应用宝</option>
+					<option value='vivo'>VIVO</option>
+					<option value='xiaomi'>小米</option>
+					<option value='oppo'>OPPO</option>
+					<option value='sougou'>搜狗</option>
+					<option value='huawei'>华为</option>
+					<option value='360'>360助手</option>
+					<option value='liantong'>联通</option>
+					<option value='jinli'>金立</option>
+					<option value='leshi'>乐视</option>
+					<option value='meizu'>魅族</option>
+					<option value='lianxiang'>联想</option>
+					<option value='mumayi'>木蚂蚁</option>
+					<option value='sanxing'>三星</option>
+					<option value='appstore'>AppStore</option>
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>版本号</label>
+			<div class="layui-input-inline">
+				<input lay-verify="required" id="versionNumber" type="text" name="versionNumber"   placeholder="版本号" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>开关</label>
+			<div class="layui-input-inline">
+				<select lay-verify="required" name="isCheck" id="isCheck">
+					<option value="true">开启</option>
+					<option value="false">关闭</option>
+				</select>
+			</div>
+		</div>
+
+		<button lay-submit lay-filter="save"  class="layui-btn" id="save_bt" style="margin-left: 180px;margin-top: 50px;" >保存</button>
+		<button class="layui-btn layui-btn-normal" id="close"   style="margin-left: 60px;margin-top: 49px;">取消</button>
+		
+	</form>
+</div>
+	<!-- JS -->
+	<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+	<script src="../../jqery/jquery.js"></script>
+	<script type="text/javascript" src="../../../commons/base.js"></script>
+
+
+	<script type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../../js/appAudit/app_audit_add.js"></script>
+</body>
+</html>

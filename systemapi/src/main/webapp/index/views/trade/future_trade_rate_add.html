@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <title>Insert title here</title> -->
+</head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<!-- css -->
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+
+
+<body>
+	<div style="margin: 15px;">
+	<form class="layui-form" id="addForms" >
+
+		<div class="layui-form-item">
+			<input type="hidden" name="id" id="id">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>交易所</label>
+			<div class="layui-input-inline">
+				<select lay-verify="required" name="excode" id="excode" lay-filter="setexName">
+					<option value="">请选择</option>
+					<option value="SHFE">上期所</option>
+					<option value="CZCE">郑商所</option>
+					<option value="DCE">大商所</option>
+				</select>
+				<input type="hidden" name="exname" id="exname">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>交易品</label>
+			<div class="layui-input-inline">
+				<select lay-verify="required" name="productId" id="productId" lay-filter="setProductName" >
+					<option value="">请选择</option>
+					<option value="ag">白银</option>
+					<option value="au">黄金</option>
+					<option value="ni">镍</option>
+					<option value="bu">沥青</option>
+					<option value="rb">螺纹钢</option>
+					<option value="i">铁矿石</option>
+					<option value="m">豆粕</option>
+					<option value="jm">焦煤</option>
+					<option value="c">玉米</option>
+					<option value="MA">甲醇MA</option>
+				</select>
+				<input type="hidden" name="productName" id="productName">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>重量单位</label>
+			<div class="layui-input-inline">
+				<input lay-verify="required" id="unit" type="text" name="unit"   placeholder="重量单位" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item" >
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>最小变动金额</label>
+			<div class="layui-input-block">
+				<input lay-verify="required" id="minPriceMovement" type="text" name="minPriceMovement"   placeholder="最小变动金额" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item" >
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>保证金率</label>
+			<div class="layui-input-block">
+				<input lay-verify="required" id="marginRate" type="text" name="marginRate"   placeholder="保证金率" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>建仓手续费率</label>
+			<div class="layui-input-block">
+				<input lay-verify="required" id="commissionRate" type="text" name="commissionRate"   placeholder="建仓手续费率" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item" >
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>平今手续费率</label>
+			<div class="layui-input-block">
+				<input lay-verify="required" id="closeTodayRate" type="text" name="closeTodayRate"   placeholder="平今手续费率" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>平仓手续费率</label>
+			<div class="layui-input-block">
+				<input lay-verify="required" id="closeYestodayRate" type="text" name="closeYestodayRate"   placeholder="平仓手续费率" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">备注</label>
+			<div class="layui-input-block">
+				<input id="remark" type="text" name="remark"   placeholder="备注" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<button lay-submit lay-filter="save"  class="layui-btn" id="save_bt" style="margin-left: 180px;margin-top: 50px;" >保存</button>
+		<button class="layui-btn layui-btn-normal" id="close"  style="margin-left: 180px;margin-top: 50px;" >取消</button>
+		
+	</form>
+</div>
+	<!-- JS -->
+	<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+	<script src="../../jqery/jquery.js"></script>
+	<script type="text/javascript" src="../../../commons/base.js"></script>
+
+
+	<script type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../../js/trade/future_trade_rate_edit.js"></script>
+</body>
+</html>

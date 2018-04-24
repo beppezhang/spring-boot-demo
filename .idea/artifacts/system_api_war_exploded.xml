@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="system-api:war exploded">
-    <output-path>$PROJECT_DIR$/spring-boot-demo/systemspringboot/systemapi/target/system-api-1.0-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/systemapi/target/system-api-1.0-SNAPSHOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -10,24 +10,26 @@
           <element id="archive" name="system-common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="system-common" />
           </element>
-          <element id="library" level="project" name="Maven: org.mybatis.generator:mybatis-generator-core:1.3.2" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.44" />
-          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.26" />
-          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0" />
-          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:1.3.0" />
-          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.4" />
-          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.1" />
           <element id="archive" name="system-util-1.0-SNAPSHOT.jar">
             <element id="module-output" name="system-util" />
           </element>
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.6" />
+          <element id="archive" name="system_dubbo_api-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="system_dubbo_api" />
+          </element>
+          <element id="library" level="project" name="Maven: com.alibaba:dubbo:2.5.3" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.21.0-GA" />
+          <element id="library" level="project" name="Maven: org.jboss.netty:netty:3.2.5.Final" />
+          <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.6" />
+          <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
+          <element id="library" level="project" name="Maven: io.netty:netty:3.7.0.Final" />
+          <element id="library" level="project" name="Maven: com.github.sgroschupf:zkclient:0.1" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:1.5.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:1.5.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:1.5.9.RELEASE" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.11" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.11" />
-          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.17" />
@@ -48,11 +50,21 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.13.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-amqp:1.5.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-messaging:4.3.13.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.amqp:spring-rabbit:1.7.4.RELEASE" />
+          <element id="library" level="project" name="Maven: com.rabbitmq:http-client:1.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.8" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Maven: com.rabbitmq:amqp-client:4.0.3" />
+          <element id="library" level="project" name="Maven: org.springframework.retry:spring-retry:1.2.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.amqp:spring-amqp:1.7.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:1.5.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.23" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:8.5.23" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.13.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:1.5.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.13" />
@@ -74,13 +86,29 @@
           <element id="library" level="project" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.3.13.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:1.5.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-redis:1.8.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-keyvalue:1.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.13.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.3.13.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.13.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
+          <element id="library" level="project" name="Maven: redis.clients:jedis:2.9.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.4.3" />
           <element id="library" level="project" name="Maven: com.alibaba:druid-spring-boot-starter:1.1.0" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.5.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.mybatis.generator:mybatis-generator-core:1.3.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.40" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.26" />
+          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0" />
+          <element id="library" level="project" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:1.3.0" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.4" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.1" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.41" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/spring-boot-demo/systemspringboot/systemapi/target/system-api-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/systemapi/target/system-api-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="system-api/web/Web" />
     </root>

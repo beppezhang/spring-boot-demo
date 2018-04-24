@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/spring-boot-demo/systemspringboot" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/spring-boot-demo/systemspringboot/systemapi" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/spring-boot-demo/systemspringboot/systemcommon" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/spring-boot-demo/systemspringboot/systemutil" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/spring-boot-demo/systemspringboot/systemutil" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaDemo2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MySpringmvc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eurekaclient" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eurekaserver" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-robin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system_dubbo_api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system_dubbo_provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/systemapi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/systemcommon" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/systemutil" charset="UTF-8" />
   </component>
 </project>

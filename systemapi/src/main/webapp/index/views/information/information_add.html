@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Title and other stuffs -->
+  <!-- Stylesheets -->
+  <link href="../../style/bootstrap.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="../../style/font-awesome.css"> 
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="../../style/jquery-ui.css"> 
+  <!-- Calendar -->
+  <link rel="stylesheet" href="../../style/fullcalendar.css">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="../../style/prettyPhoto.css">  
+  <!-- Star rating -->
+  <link rel="stylesheet" href="../../style/rateit.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="../../style/bootstrap-datetimepicker.min.css">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="../../style/jquery.cleditor.css"> 
+  <!-- Uniform -->
+  <!--<link rel="stylesheet" href="../../style/uniform.default.css"> -->
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="../../style/bootstrap-switch.css">
+  <!-- Main stylesheet -->
+  <link href="../../style/style.css" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="../../style/widgets.css" rel="stylesheet">   
+  
+  <!-- HTML5 Support for IE -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shim.js"></script>
+  <![endif]-->
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../img/favicon/favicon.png">
+  
+<!--   UEditor -->
+  
+<!--     <script type="text/javascript" charset="utf-8" src="../../UEditor/_src/core/browser.js"></script> -->
+</head>
+
+<body>
+	
+
+	<div class="content">
+
+
+  	<!-- Main bar -->
+  	<div class="mainbar">
+      
+	    <!-- Page heading -->
+
+	    <!-- Matter -->
+
+	    <div class="matter">
+        <div class="container">
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+              <div class="widget wred">
+                <div class="widget-head">
+                  <div class="pull-left">新建消息</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="widget-content">
+                  <div class="padd">
+                    
+                    <!-- Profile form -->
+                   
+                                    <div class="form profile">
+                                      <!-- Edit profile form (not working)-->
+                                      <form class="form-horizontal">
+                                      		<!-- 隐藏值，1：新版，2：旧版 -->
+                                      		<input type="hidden" name="type" id="type_id" />
+                                      	  <!-- Email -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="email1" style="width: 120px;">标题</label>
+                                            <div class="col-lg-6">
+                                            	<input id="informationId" name="informationId" type="hidden"/>
+                                              <input type="text" class="form-control" id="title" name="title" />
+                                            </div>
+                                          </div>
+                                           <div class="form-group">
+                                            <label class="control-label col-lg-3" for="" style="width: 120px;">消息类型</label>
+                                            <div class="col-lg-6">
+                                            	<select class="form-control" id="contentType" name="contentType" style="width: 100px;">
+                                            		<option value="策略">策略</option>
+                                            		<option value="公告">公告</option>
+                                            	</select>
+<!--                                               <input type="text" class="form-control" id="email1"> -->
+                                            </div>
+                                          </div>
+                                          <div class="form-group" id="describeContent_div">
+                                            <label class="control-label col-lg-3" for="" style="width: 120px;">描述内容</label>
+                                            <div class="col-lg-6">
+                                            	<textarea class='form-control' id='describeContent' name='describeContent'  style="height: 65px; width: 809px;"
+                                            	class='form-control error btn-radius'></textarea>
+                                            </div>
+                                          </div>
+                                          
+                                           <div class="form-group" id="homePic_id" >
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">首页展示图片</label>
+                                            <div class="col-lg-6">
+                                            	<img alt="" src="" id="homePic_img" height="150px;" width="200px;">
+                                              <input type="file" name="homePic" id="homePic"/>  
+                                            </div>
+                                          </div> 
+                                          <!-- Name -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">内容</label>
+                                            <div class="col-lg-6" >
+<input type="hidden" id="tempContent"  />
+<!-- <script type="text/javascript" charset="utf-8" src="../../UEditor/ueditor.config.js"></script> -->
+<!-- <script type="text/javascript" charset="utf-8" src="../../UEditor/_examples/editor_api.js"></script> -->
+
+<!--style给定宽度可以影响编辑器的最终宽度-->
+<!-- <script type="text/plain" id="myEditor"></script> -->
+<!--     <script type="text/javascript"> -->
+<!-- //     	//UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl; -->
+<!-- //     	var myEditor=UE.getEditor('myEditor',{ -->
+<!-- //             //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个 -->
+<!-- //             //toolbars:[['FullScreen','simpleupload','Source', 'Undo', 'Redo','Bold','test']], -->
+<!-- //             //focus时自动清空初始化时的内容 -->
+<!-- //             autoClearinitialContent:true, -->
+<!-- //             //关闭字数统计 -->
+<!-- //             wordCount:false, -->
+<!-- //             //关闭elementPath -->
+<!-- //             elementPathEnabled:false, -->
+<!-- //             //默认的编辑区域高度 -->
+<!-- //             initialFrameHeight:300 -->
+<!-- //             //更多其他参数，请参考ueditor.config.js中的配置项 -->
+<!-- //         }); -->
+<!-- //         //UE.Editor.prototype.getActionUrl = function(action) { -->
+<!-- // 		//	if (action == 'fileUploadServlet') { -->
+<!-- // 		//		return 'http://localhost:8081/Test/fileUploadServlet'; -->
+<!-- // 		//	}else{ -->
+<!-- // 		//		 return this._bkGetActionUrl.call(this, action); -->
+<!-- // 		//	} -->
+<!-- // 		//} -->
+<!--     </script> -->
+<!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="../../UEditor_14.3.3/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="../../UEditor_14.3.3/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var myEditor = UE.getEditor('container',{
+        				//关闭elementPath -->
+        	            elementPathEnabled:false, 
+        	           //默认的编辑区域高度 -->
+        	           initialFrameHeight:400  });
+        	          //更多其他参数，请参考ueditor.config.js中的配置项
+    </script>
+
+                                            </div>
+                                          </div>
+                                          <!-- pic begin-->
+                                          <div class="form-group" id="pic_div1">
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">图片1</label>
+                                            <div class="col-lg-6">
+                                            	<img alt="" src="" id="pic_one_img" height="150px;" width="200px;">
+                                              <input type="file" name="pic_one" id="pic_one"/>  
+                                            </div>
+                                          </div> 
+                                           <div class="form-group" id="pic_div2">
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">图片2</label>
+                                            <div class="col-lg-6">
+                                            	<img alt="" src="" id="pic_two_img" height="150px;" width="200px;">
+                                              <input type="file" name="pic_two" id="pic_two"/>  
+                                            </div>
+                                          </div> 
+                                           <div class="form-group" id="pic_div3">
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">图片3</label>
+                                            <div class="col-lg-6">
+                                            	<img alt="" src="" id="pic_three_img" height="150px;" width="200px;">
+                                              <input type="file" name="pic_three" id="pic_three"/>  
+                                            </div>
+                                          </div> 
+                                           <div class="form-group" id="pic_div4">
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">图片4</label>
+                                            <div class="col-lg-6">
+                                            	<img alt="" src="" id="pic_four_img" height="150px;" width="200px;">
+                                              <input type="file" name="pic_four" id="pic_four"/>  
+                                            </div>
+                                          </div> 
+                                           <div class="form-group" id="pic_div5">
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">图片5</label>
+                                            <div class="col-lg-6">
+                                            	<img alt="" src="" id="pic_five_img" height="150px;" width="200px;">
+                                              <input type="file" name="pic_five" id="pic_five"/>  
+                                            </div>
+                                          </div> 
+                                           <div class="form-group" id="pic_div6">
+                                            <label class="control-label col-lg-3" for="name1" style="width: 120px;">图片6</label>
+                                            <div class="col-lg-6">
+                                            	<img alt="" src="" id="pic_six_img" height="150px;" width="200px;">
+                                              <input type="file" name="pic_six" id="pic_six"/>  
+                                            </div>
+                                          </div>
+                                          <!-- pic end-->
+                                          <!-- Buttons -->
+                                          <div class="form-group">
+                                             <!-- Buttons -->
+											 <div class="col-lg-6 col-lg-offset-1">
+											 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 <button type="button" class="btn btn-success" onclick="UpladFile();" id="button_save" style="margin-right:50px;">保存</button>
+<!-- 												<button type="button" class="btn btn-success" onclick="saves();">保存</button> -->
+												<button type="button" class="btn btn-success"  onclick="historysGo()">返回</button>
+											</div>
+                                          </div>
+                                      </form>
+                                    </div>
+
+                  </div>
+                </div>
+              </div>  
+              
+            </div>
+
+          </div>
+
+        </div>
+		  </div>
+
+		<!-- Matter ends -->
+
+    </div>
+
+   <!-- Mainbar ends -->	    	
+   <div class="clearfix"></div>
+
+</div>
+<!-- Content ends -->
+
+ 
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span> 
+
+<!-- JS -->
+<script src="../../jqery/jquery.js"></script> <!-- jQuery -->
+<script src="../../jqery/bootstrap.js"></script> <!-- Bootstrap -->
+<script src="../../jqery/jquery-ui-1.9.2.custom.min.js"></script> <!-- jQuery UI -->
+<script src="../../jqery/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+<script src="../../jqery/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+<script src="../../jqery/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+
+<!-- jQuery Flot -->
+<script src="../../jqery/excanvas.min.js"></script>
+<script src="../../jqery/jquery.flot.js"></script>
+<script src="../../jqery/jquery.flot.resize.js"></script>
+<script src="../../jqery/jquery.flot.pie.js"></script>
+<script src="../../jqery/jquery.flot.stack.js"></script>
+
+<!-- jQuery Notification - Noty -->
+<script src="../../jqery/jquery.noty.js"></script> <!-- jQuery Notify -->
+<script src="../../jqery/themes/default.js"></script> <!-- jQuery Notify -->
+<script src="../../jqery/layouts/bottom.js"></script> <!-- jQuery Notify -->
+<script src="../../jqery/layouts/topRight.js"></script> <!-- jQuery Notify -->
+<script src="../../jqery/layouts/top.js"></script> <!-- jQuery Notify -->
+<!-- jQuery Notification ends -->
+
+<script src="../../jqery/sparklines.js"></script> <!-- Sparklines -->
+<script src="../../jqery/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+<script src="../../jqery/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+<script src="../../jqery/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
+<script src="../../jqery/filter.js"></script> <!-- Filter for support page -->
+<script src="../../jqery/custom.js"></script> <!-- Custom codes -->
+<script src="../../jqery/charts.js"></script> <!-- Charts & Graphs -->
+<!-- <script src="../../js/information.js"></script>   -->
+<script src="../../js/infomation/information_update.js"></script>
+<script type="text/javascript" src="../../../commons/base.js"></script>
+</body>
+</html>

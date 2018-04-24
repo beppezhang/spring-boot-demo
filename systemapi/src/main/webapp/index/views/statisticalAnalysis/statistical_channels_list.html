@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+		<script type="text/javascript" src="../../js/dateFormat.min.js"></script>
+		<script type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+	</head>
+
+	<body>
+		<div class="admin-main">
+		
+
+			<blockquote class="layui-elem-quote">
+
+<!-- 				<a href="#" class="layui-btn layui-btn-small" id="import"> -->
+<!-- 					<i class="layui-icon">&#xe608;</i> 导入信息 -->
+<!-- 				</a> -->
+<!-- 				<a href="#" class="layui-btn layui-btn-small"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息 -->
+<!-- 				</a> -->
+<!-- 				<a href="#" class="layui-btn layui-btn-small" id="getSelected"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 多选删除 -->
+<!-- 				</a> -->
+				
+				<!-- 查询条件 -->
+				<div class="layui-inline">
+			      <label class="layui-form-label">渠道名称：</label>
+			      <div class="layui-input-inline">
+			        <input name="phoneType" lay-verify="phoneType" autocomplete="off" placeholder="请输入渠道名称" class="layui-input"  id="phoneType" >
+			      </div>
+			    </div>
+
+				<div class="layui-inline">
+					<label class="layui-form-label">统计时间：</label>
+					<div class="layui-input-inline">
+						<input name="createStartTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" lay-verify="createStartTime" autocomplete="off" placeholder="请选择日期" class="layui-input"  id="createStartTime" >
+					</div>
+					<label>至</label>
+					<div class="layui-input-inline">
+						<input name="createEndTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" lay-verify="createEndTime" autocomplete="off" placeholder="请选择日期" class="layui-input"  id="createEndTime" >
+					</div>
+				</div>
+
+				<div class="layui-input-inline layui-form">
+					<select name="remark" id="remark">
+						<option value="CK_XNSUDAI001">拍拍信</option>
+						<option value="CK_BOC001">中银</option>
+					</select>
+				</div>
+
+					<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
+						<i class="layui-icon">&#xe615;</i> 搜索
+					</a>
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="clear">
+					<i class="layui-icon">&#xe640;</i> 清空
+				</a>
+
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="exportExcel">
+					<i class="layui-icon">&#xe601;</i> 导出excel列表
+				</a>
+			</blockquote>
+			<fieldset class="layui-elem-field">
+				<legend>渠道新客统计</legend>
+				<div class="layui-field-box layui-form">
+					<table class="layui-table admin-table">
+						<thead>
+							<tr>
+								<th style="width: 30px;">
+								<input type="checkbox" lay-filter="allselector" lay-skin="primary"></th>
+								<th>序号</th>
+								<th>统计时间</th>
+								<th>渠道名称</th>
+								<th>激活人数</th>
+								<th>注册人数</th>
+								<th>申请人数</th>
+								<th>人脸识别人数</th>
+								<th>验证身份证人数</th>
+								<th>芝麻信用授权人数</th>
+								<th>绑定银行卡人数</th>
+								<th>基本信息填写人数</th>
+								<th>紧急联系人填写人数</th>
+								<th>拍拍审核人数</th>
+								<th>拍拍信被拒人数</th>
+								<th>拍拍信审核通过人数</th>
+								<th>提交审核人数</th>
+								<th>开户通过人数</th>
+								<th>提现中人数</th>
+								<th>提现到账人数</th>
+								<th>自拒人数</th>
+								<th>放贷金额人数</th>
+								<th>收取手续费人数</th>
+							</tr>
+						</thead>
+						<tbody id="content">
+						</tbody>
+					</table>
+				</div>
+			</fieldset>
+			<div class="admin-table-page">
+				<div id="paged" class="page">
+				</div>
+			</div>
+		</div>
+		<!--模板-->
+		<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){ }}
+			<tr>
+				<td><input type="checkbox" lay-skin="primary"></td>
+				<td>{{ index+1 }}</td>
+				<td>{{ new Date(item.createTime).pattern('yyyy-MM-dd HH:mm:ss')}}</td>
+				<td>{{ item.phoneType }}</td>
+				<td>{{ item.appRegisterNum }}</td>
+				<td>{{ item.registerNum }}</td>
+				<td>{{ item.applicationNum }}</td>
+				<td>{{ item.faceNum }}</td>
+				<td>{{ item.cardNum }}</td>
+				<td>{{ item.authorizationNum }}</td>
+				<td>{{ item.bankCardNum }}</td>
+				<td>{{ item.basicNum }}</td>
+				<td>{{ item.emergencyNum }}</td>
+				<td>{{ item.auditNumber }}</td>
+				<td>{{ item.rejectedNumber }}</td>
+				<td>{{ item.successNumber }}</td>
+				<td>{{ item.openAccountNum }}</td>
+				<td>{{ item.accountPassNumber }}</td>
+				<td>{{ item.withdrawalNum }}</td>
+				<td>{{ item.withdrawalSuccessNum }}</td>
+				<td>{{ item.sinceRejectedNum }}</td>
+				<td>{{ item.loanAmountNum }}</td>
+				<td>{{ item.chargeNum }}</td>
+			</tr>
+			{{# }); }}
+		</script>
+		
+		<!-- js -->
+		<script src="../../jqery/jquery.js"></script>
+		<script src="../../../commons/base.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/statisticalAnalysis/statistical_channels_list.js"></script>
+	</body>
+
+</html>

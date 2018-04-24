@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="css/global.css" media="all">
+		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/table.css" />
+	</head>
+
+	<body>
+		<div class="admin-main">
+		
+
+			<blockquote class="layui-elem-quote">
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="add">
+					<i class="layui-icon">&#xe608;</i> 添加用户
+				</a>
+				<!--<a href="#" class="layui-btn layui-btn-small" id="deletedRedisKey">-->
+					<!--<i class="layui-icon">&#xe640;</i> 删除用户缓存-->
+				<!--</a>-->
+<!-- 				<a href="#" class="layui-btn layui-btn-small"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息 -->
+<!-- 				</a> -->
+<!-- 				<a href="#" class="layui-btn layui-btn-small" id="getSelected"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 多选删除 -->
+<!-- 				</a> -->
+				
+				<!-- 查询条件 -->
+				<div class="layui-inline">
+			      <label class="layui-form-label">登录帐号：</label>
+			      <div class="layui-input-inline">
+			        <input name="userName" lay-verify="userName" id="userName" placeholder="支持模糊查询"  autocomplete="off" class="layui-input" >
+			      </div>
+			    </div>
+<!-- 			    <div class="layui-inline"> -->
+<!-- 			      <label class="layui-form-label">创建日期：</label> -->
+<!-- 			      <div class="layui-input-inline"> -->
+<!-- 			        <input name="userName" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" lay-verify="userName" id="userName" autocomplete="off" class="layui-input" > -->
+<!-- 			      </div> -->
+<!-- 			    </div> -->
+			    
+			    
+					<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
+						<i class="layui-icon">&#xe615;</i> 搜索
+					</a>
+			</blockquote>
+			<fieldset class="layui-elem-field">
+				<legend>数据列表</legend>
+				<div class="layui-field-box layui-form">
+					<table class="layui-table admin-table">
+						<thead>
+							<tr>
+								<th style="width: 30px;"><input type="checkbox" lay-filter="allselector" lay-skin="primary"></th>
+								<th>序号</th>
+								<th>登录帐号</th>
+								<th>用户昵称</th>
+								<th>手机号</th>
+								<th>创建时间</th>
+								<th>最后登录IP</th>
+								<th>最后登录时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="content">
+						</tbody>
+					</table>
+					<label>共<font color='red' id="count_page_number"></font>条记录</label>
+					<div id="paged" class="page" style="display:inline-block;">
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<!--模板-->
+		<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){ }}
+			<tr>
+				<td><input type="checkbox" lay-skin="primary"></td>
+				<td>{{ index+1 }}</td>
+				<td>{{ item.userName }}</td>
+				<td>{{ item.nickName }}</td>
+				<td>{{ item.mobile }}</td>
+				<td>{{ item.createTime }}</td>
+				<td>{{ item.ip }}</td>
+				<td>{{ item.lastLoginTime }}</td>																			
+				<td>
+					<a href="javascript:;" data-id="{{ item.id }}" data-opt="find" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+					<a href="javascript:;" data-id="{{ item.id }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>
+					<a href="javascript:;" data-id="{{ item.id }}" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+				</td>
+			</tr>
+			{{# }); }}
+		</script>
+		
+		<!-- js -->
+		<script src="jqery/jquery.js"></script>
+		<script src="../commons/base.js"></script>
+		<!-- 日期控件 -->
+	   <script language="javascript" type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="js/user/user.js"></script>
+	</body>
+
+</html>

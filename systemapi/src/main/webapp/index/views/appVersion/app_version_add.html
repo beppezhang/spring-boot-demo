@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <title>Insert title here</title> -->
+</head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<!-- css -->
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+
+
+<body>
+	<div style="margin: 15px;">
+	<form class="layui-form" id="appForms" >
+
+		<div class="layui-form-item">
+			<input type="hidden" name="appVersionId" id="appVersionId">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>APP类型</label>
+			<div class="layui-input-inline">
+				<select lay-verify="required" name="appType" id="appType">
+					<option value="">请选择</option>
+					<option value="0">Android</option>
+					<option value="1">IOS</option>
+					<option value="2">Windows Phone</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>更新类型</label>
+			<div class="layui-input-inline">
+				<select lay-verify="required" name="changeProperties" id="changeProperties" lay-filter="checkChangeProperties" >
+					<option value="">请选择</option>
+					<option value="0">提示更新</option>
+					<option value="1">强制更新</option>
+					<option value="2">热更新</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>版本号</label>
+			<div class="layui-input-inline">
+				<input lay-verify="required" id="versionNumber" type="text" name="versionNumber"   placeholder="版本号" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item" id="patchVersionNumberDiv" style="display: none">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>补丁包版本号</label>
+			<div class="layui-input-inline">
+				<input lay-verify="patchVersion" id="patchVersionNumber" type="text" name="patchVersionNumber"   placeholder="补丁包版本号" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<!-- 图片    start-->
+		<div class="layui-form-item" id="fileDiv" style="display: none">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>上传补丁包</label>
+			<div  id="upload_id">
+				<input  name="file"  id="file_id" type="file" class="layui-upload-file" >
+			</div>
+		</div>
+		<!-- 图片   end-->
+		<div class="layui-form-item" id="downloadUrlDiv">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>下载地址</label>
+			<div class="layui-input-block">
+				<input lay-verify="patchVersion" id="downloadUrl" type="text" name="downloadUrl"   placeholder="下载地址" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item" id="downloadValidCodeDiv">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>MD5下载校验码</label>
+			<div class="layui-input-block">
+				<input lay-verify="downloadValidCode" id="downloadValidCode" type="text" name="downloadValidCode"   placeholder="MD5下载校验码" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>更新文案</label>
+			<div class="layui-input-block">
+				<input lay-verify="required" id="changeDesc" type="text" name="changeDesc"   placeholder="更新描述" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<!--<div class="layui-form-item">-->
+			<!--<label class="layui-form-label">状态</label>-->
+			<!--<div class="layui-input-inline">-->
+				<!--<select lay-verify="state" name="state" id="state">-->
+					<!--<option value="">请选择</option>-->
+					<!--<option value="0">失效</option>-->
+					<!--<option value="1">有效</option>-->
+					<!--<option value="9">已删除</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<!--<div class="layui-form-item">-->
+			<!--<label class="layui-form-label">版本标签</label>-->
+			<!--<div class="layui-input-inline">-->
+				<!--<select lay-verify="tag" name="tag" id="tag">-->
+					<!--<option value="">请选择</option>-->
+					<!--<option value="1">生产</option>-->
+					<!--<option value="2">预发布</option>-->
+					<!--<option value="3">测试</option>-->
+				<!--</select>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>是否弹窗</label>
+			<div class="layui-input-inline">
+				<select lay-verify="required" name="popup" id="popup">
+					<option value="1">打开</option>
+					<option value="0">关闭</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>更新开始时间</label>
+			<div class="layui-input-inline">
+				<input lay-verify="required" id="beginTime" type="text" name="beginTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  placeholder="更新开始时间" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"><font style="color: red">* &nbsp;</font>更新结束时间</label>
+			<div class="layui-input-inline">
+				<input lay-verify="verifyEndDate" id="endTime" type="text" name="endTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  placeholder="更新结束时间" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">备注</label>
+			<div class="layui-input-block">
+				<input id="remark" type="text" name="remark"   placeholder="备注" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+
+		<button lay-submit lay-filter="save"  class="layui-btn" id="save_bt" style="margin-left: 180px;margin-top: 50px;" >保存</button>
+		<button class="layui-btn layui-btn-normal" id="close"  style="margin-left: 180px;margin-top: 50px;" >取消</button>
+		
+	</form>
+</div>
+	<!-- JS -->
+	<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+	<script src="../../jqery/jquery.js"></script>
+	<script type="text/javascript" src="../../../commons/base.js"></script>
+
+
+	<script type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../../js/appVersion/app_version_add.js"></script>
+</body>
+</html>

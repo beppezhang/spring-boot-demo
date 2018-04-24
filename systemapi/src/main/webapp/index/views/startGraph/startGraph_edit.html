@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <title>Insert title here</title> -->
+</head>
+<!-- css -->
+<link rel="stylesheet" href="../../plugins/layui/css/layui.css"	media="all" />
+<link rel="stylesheet" href="../../css/global.css" media="all">
+<link rel="stylesheet"	href="../../plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../css/table.css" />
+
+<!-- JS -->
+<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+<script src="../../jqery/jquery.js"></script>
+<script type="text/javascript" src="../../../commons/base.js"></script>
+<!-- <script type="text/javascript" src="../../js/banner/banner_edit.js"></script> -->
+ <script type="text/javascript" src="../../js/startGraph/startGraph_edit.js"></script>  
+<!-- 日期控件 -->
+<script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+
+<body>
+	<div style="margin: 15px;">
+		<form class="layui-form" id="userForms">
+		<div class="layui-form-item">
+		<input id="graphId" type="hidden" name="graphId"
+						autocomplete="off" class="layui-input">
+				<label class="layui-form-label">图片</label>
+			</div>
+			<div class="site-demo-upload" style="margin-left: 180px;">
+				<img id="LAY_demo_upload" src="" width="150px;" height="150px;"	style="display: none;">
+				<div class="site-demo-upbar" id="upload_id">
+					<input name="file" class="layui-upload-file" id="file_id"	type="file">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">跳转url</label>
+				<div class="layui-input-inline">
+					 <input id="url"
+						type="text" name="url" placeholder="跳转url" autocomplete="off"
+						class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">标题</label>
+				<div class="layui-input-inline">
+		<input id="title" type="text" name="title" placeholder="标题" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">平台类型</label>
+				<div class="layui-input-block">
+					<input name="mobileType"  value="1" title="ios" type="radio"	lay-filter="radio_filter" id="level_id3" />
+					 <input name="mobileType" value="0" title="android"     type="radio" lay-filter="radio_filter" id="level_id2" /> 
+					 <input name="mobileType" value="2" title="pc"   type="radio" lay-filter="radio_filter" id="level_id1" />
+				</div>
+			</div>
+				 
+				 
+				 <div class="layui-form-item">
+				<label class="layui-form-label">图片类型</label>
+				<div class="layui-input-block">
+					<input name="isStatic"  value="0" title="动态" type="radio"	lay-filter="radio_filter" id="level_id4" />
+					 <input name="isStatic" value="1" title="静态"     type="radio" lay-filter="radio_filter" id="level_id5" /> 
+					 
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">开始时间</label>
+				<div class="layui-input-inline">
+					<input id="startTime" type="text" name="startTime"
+						onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"
+						placeholder="开始时间" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">结束时间</label>
+				<div class="layui-input-inline">
+					<input id="endTime" type="text" name="endTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder="结束时间" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			
+		 
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">排序值</label>
+				<div class="layui-input-inline">
+					<input id="serialNum" type="text" name="serialNum" placeholder="排序值"
+						autocomplete="off" class="layui-input">
+				</div>
+			</div>
+
+			
+
+			<div class="layui-form-item">
+				<label class="layui-form-label">弹出界面</label>
+				<div class="layui-input-block">
+					<select name="type"   lay-verify="">
+						<option value="1" id="select1">启动图</option>
+						<option value="2" id="select2">引导图</option>
+						<option value="3" id="select3">首页中间活动</option>
+					</select>
+				</div>
+			</div>
+
+		
+ 
+			
+			<!-- 监听save -->
+	        <button lay-submit lay-filter="save"  class="layui-btn" id="save_bt" >保存</button>
+<!-- 			<input type="button" class="layui-btn" value="保存" onclick="save()" id="save_bt"  /> -->
+			<button class="layui-btn layui-btn-normal" id="closeIframe"onclick="closeIfrname()">取消</button>
+		</form>
+	</div>
+</body>
+</html>

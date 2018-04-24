@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>弹窗配置管理</title>
+<link rel="stylesheet" href="../../plugins/layui/css/layui.css"
+	media="all" />
+<link rel="stylesheet" href="../../css/global.css" media="all">
+<link rel="stylesheet"
+	href="../../plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../css/table.css" />
+</head>
+
+<body>
+	<div class="admin-main">
+
+		<blockquote class="layui-elem-quote">
+			<a href="javascript:;" class="layui-btn layui-btn-small" id="add">
+				<i class="layui-icon">&#xe608;</i>增加弹窗
+			</a>
+		</blockquote>
+		
+	  	<blockquote class="layui-elem-quote">
+			查询条件
+			   <button class="layui-btn layui-btn-mini layui-btn-normal" onclick="get(0)" id="get0" >已上线</button>
+			   <button class="layui-btn layui-btn-mini" onclick="get(1)" id="get1">即将上线</button>
+			   <button class="layui-btn layui-btn-mini" onclick="get(2)" id="get2">已下线</button>
+		</blockquote>  
+		
+		<fieldset class="layui-elem-field">
+			<legend>弹窗配置</legend>
+			<div class="layui-field-box layui-form">
+				<table class="layui-table admin-table">
+					<thead>
+						<tr>
+						<th>序号</th>
+							<th>图片</th>
+							<th>app端url</th>
+							<th>标题</th>
+							<th>平台</th>
+							<th>版本号</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+							<th>每多少秒弹一次</th>
+							<th>排序值</th>
+							<th>用户群标识</th>
+							<th>弹出界面</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="content">
+					</tbody>
+				</table>
+			</div>
+		</fieldset>
+		<div class="admin-table-page">
+			<div id="paged" class="page"></div>
+		</div>
+	</div>
+	<!--模板-->
+	<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){ }}
+			<tr>
+<td>{{ index + 1 }}</td>
+          <td><img src=" {{ item.image }} "   width="120px;" height="40px;"  ></td>
+				<td>{{ item.url }}</td>
+				
+				<td>{{ item.title }}</td>
+                <td>{{ item.platform }}</td>
+                <td>{{ item.appVersion }}</td>
+				<td>{{ item.startTime.substring(0, 19)}}</td>
+                <td>{{ item.endTime.substring(0, 19) }}</td>
+                <td>{{ item.excuteTime }}</td>
+				<td>{{ item.serialNum }}</td>
+                <td>{{ item.userGroup }}</td>
+                <td>{{ item.alertPage }}</td> 
+				<td>
+				   
+					<a href="javascript:;" data-id="{{ item.bannerId }}" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+				</td>
+			</tr>
+			{{# }); }}
+		</script>
+			<!--<a href="javascript:;" data-id="{{ item.bannerId }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>
+			 <a href="javascript:;" data-id="{{ item.bannerId }}" data-opt="find" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+ -->
+	<!-- js -->
+ 
+	<script src="../../jqery/jquery.js"></script>
+	<script src="../../../commons/base.js"></script>
+	<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+	<script type="text/javascript" src="../../js/banner/banner.js"></script>
+	<!-- 日期控件 -->
+	<script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js"></script>
+</body>
+
+</html>

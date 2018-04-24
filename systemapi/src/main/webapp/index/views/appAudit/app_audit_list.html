@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+		<script type="text/javascript" src="../../js/dateFormat.min.js"></script>
+	</head>
+
+	<body>
+		<div class="admin-main">
+		
+
+			<blockquote class="layui-elem-quote">
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="add">
+					<i class="layui-icon">&#xe608;</i> 新增
+				</a>
+<!-- 				<a href="#" class="layui-btn layui-btn-small" id="import"> -->
+<!-- 					<i class="layui-icon">&#xe608;</i> 导入信息 -->
+<!-- 				</a> -->
+<!-- 				<a href="#" class="layui-btn layui-btn-small"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息 -->
+<!-- 				</a> -->
+<!-- 				<a href="#" class="layui-btn layui-btn-small" id="getSelected"> -->
+<!-- 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 多选删除 -->
+<!-- 				</a> -->
+
+				<!--<div class="layui-inline">
+					<label class="layui-form-label" >版本号</label>
+					<div class="layui-input-inline" style="width:200px;">
+						<input name="versionNumber"  lay-verify="versionNumber" id="versionNumber" autocomplete="off" class="layui-input"/>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">版本类型</label>
+					<div class="layui-input-inline" style="width:160px;">
+						<select name="appType" id = "appType" class="layui-input">
+							<option value="">请选择</option>
+							<option value="0">Android</option>
+							<option value="1">IOS</option>
+							<option value="2">Windows Phone</option>
+						</select>
+					</div>
+				</div>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="layui-inline">
+					<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
+						<i class="layui-icon">&#xe615;</i> 搜索
+					</a>
+				</div>-->
+			</blockquote>
+			<fieldset class="layui-elem-field">
+				<legend>数据列表</legend>
+				<div class="layui-field-box">
+					<table class="layui-table layui-form" style="table-layout: fixed">
+						<thead>
+							<tr>
+								<!--<th style="width: 30px;">
+								<input type="checkbox" lay-filter="allselector" lay-skin="primary"></th>-->
+								<th>序号</th>
+								<th >APP类型</th>
+								<th >市场名称</th>
+								<th >版本号</th>
+								<th>开关</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="content">
+						</tbody>
+					</table>
+					<label>共<font color='red' id="count_page_number"></font>条记录</label>
+					<div id="paged" class="page" style="display:inline-block;">
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<!--模板-->
+		<script type="text/html" id="tpl">
+			{{# layui.each(d.list, function(index, item){
+				var appType="";
+				if(item.appType == "0"){
+					appType="Android";
+				}
+				if(item.appType=="1"){
+					appType="IOS";
+				}
+				if(item.appType == "2"){
+					appType="Windows Phone";
+				}
+				var isCheck="";
+				if(item.isCheck == "1"){
+					isCheck="开启";
+				}else{
+					isCheck="关闭";
+				}
+
+			}}
+			<tr>
+				<!--<td><input type="checkbox" lay-skin="primary"></td>-->
+				<td>{{ index+1 }}</td>
+				<td>{{ appType }}</td>
+				<td>{{ item.marketName }}</td>
+				<td>{{ item.versionNumber }}</td>
+				<td>{{ isCheck }}</td>
+				<td>
+					<!--<a href="javascript:;" data-id="{{ item.appVersionId }}" data-opt="find" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>-->
+					<a href="javascript:;" data-id="{{ item.appAuditId }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>
+					<a href="javascript:;" data-id="{{ item.appAuditId }}" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+				</td>
+			</tr>
+			{{# }); }}
+		</script>
+		
+		<!-- js -->
+		<script src="../../jqery/jquery.js"></script>
+		<script src="../../../commons/base.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="../../js/appAudit/app_audit_list.js"></script>
+	</body>
+
+</html>
