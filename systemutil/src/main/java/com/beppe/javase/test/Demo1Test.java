@@ -54,30 +54,34 @@ public class Demo1Test {
     public void test2(){
         int[] arr={6,3,8,2,9,1};
         sort1(arr);
+        for (int i : arr) {
+            System.out.println(i);
+        }
     }
 
     public void sort(int[] arr){
-        for (int i = 0; i < arr.length-1; i++) {  //第一层控制排序趟数
-            for (int j = 0; j <arr.length-1-i ; j++) { //第二层控制每趟排序次数
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=0;j<arr.length-i-1;j++){
                 if(arr[j]>arr[j+1]){
-                    int tmp=arr[j];
+//                    将数组的元素交换位置
+                    int temp=arr[j];
                     arr[j]=arr[j+1];
-                    arr[j+1]=tmp;
+                    arr[j+1]=temp;
                 }
+
             }
+
         }
-        System.out.println("=====================");
-       for (int num:arr){
-           System.out.println("排序后的数组是"+num);
-       }
+
     }
 
 //   直接排序
     public void sort1(int[] arr){
-//        int temp=0;
-        for (int i = 0; i < arr.length-1; i++) { //控制排序趟数
+
+        for (int i = 0; i < arr.length; i++) {
+//            取出当前的元素并且和其他的元素比较后换位 找到最小元素的索引
             int temp=i;
-            for (int j = i+1; j <arr.length ; j++) {//控制次数
+            for (int j = i+1; j < arr.length; j++) {
                 if(arr[temp]>arr[j]){
                     temp=j;
                 }
@@ -89,36 +93,71 @@ public class Demo1Test {
             }
 
         }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
+
+
+//        int temp=0;
+//        for (int i = 0; i < arr.length-1; i++) { //控制排序趟数
+//            int temp=i;
+//            for (int j = i+1; j <arr.length ; j++) { //控制次数
+//                if(arr[temp]>arr[j]){
+//                    temp=j;
+//                }
+//            }
+//            if(temp!=i){
+//                int aa=arr[temp];
+//                arr[temp]=arr[i];
+//                arr[i]=aa;
+//            }
+//
+//        }
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.println(arr[i]);
+//        }
     }
 
 //    二分法查找
     @Test
     public void test3(){
-        int[] arr={1,3,8,10,14};
-        int i=getValue(10, arr);
+        int[] arr={1,3,8,10,14,18,28,98,109,122,130,140,176};
+        int i=getValue(18, arr);
         System.out.println(i);
     }
 
+
+
     private int getValue(int des,int[] arr){
-        int start=0;
+        int start =0;
         int end=arr.length-1;
         int mid=-1;
-        while (start<=end){
+        while(start<=end){
             mid=(start+end)/2;
             if(arr[mid]==des){
                 return mid;
             }else if(arr[mid]>des){
-                end=mid-1;
-
-            }else if(arr[mid]<des){
-                start=mid+1;
+                end=mid;
+            }else{
+                start=mid;
             }
-
         }
         return -1;
+
+
+//        int start=0;
+//        int end=arr.length-1;
+//        int mid=-1;
+//        while (start<=end){
+//            mid=(start+end)/2;
+//            if(arr[mid]==des){
+//                return mid;
+//            }else if(arr[mid]>des){
+//                end=mid-1;
+//
+//            }else if(arr[mid]<des){
+//                start=mid+1;
+//            }
+//
+//        }
+//        return -1;
     }
 
 
